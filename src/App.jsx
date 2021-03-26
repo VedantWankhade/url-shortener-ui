@@ -1,4 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
+import { HashRouter } from 'react-router-dom';
 
-ReactDOM.render(<h1>Hello from react webpack</h1>, document.getElementById('root'))
+import Page from './Page.jsx'
+
+class App extends React.Component {
+
+    render() {
+
+        return (
+            <HashRouter>
+                <Page />
+            </HashRouter>
+            
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
