@@ -9,10 +9,10 @@ export default function Page() {
 
     return (
 
-        <React.Fragment>
+        <div className='page'>
             <NavBar />
             <Contents />
             <Footer />
-        </React.Fragment>
+        </div>
     )
 }

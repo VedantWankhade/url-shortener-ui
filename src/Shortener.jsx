@@ -8,21 +8,21 @@ export default class Shortener extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
         e.preventDefault();
         const form = document.forms['url-form'];
         const longUrl = form.longUrlInput.value;
         // console.log(`The long urs is : ${longUrl}`);
-        const query = `mutation {
-            short($long_url: String!) {
-                short(long_url: $long_url)
-            }
+        const query = `mutation short($longUrl: String!) {
+            short(long_url: $longUrl)
         }`
         const varible = {
-            long_url: longUrl
+            longUrl
         }
-        const data = graphQLFetch(query, varible)
+        
+        const data = await graphQLFetch(query, varible)
         // console.log(data);
+        console.log('The shortned url is: ', data.data.short);
         form.reset();
     }
 
