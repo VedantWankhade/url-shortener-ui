@@ -1,33 +1,34 @@
 import React from 'react';
+import URLTable from './URLTable.jsx';
+import graphQLFetch from '../graphQLFetch.js';
 
-export default function History() {
+export default class History extends React.Component {
 
-    return (
-        <div className="history-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Long Url</th>
-                        <th>Short Url</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Id</td>
-                        <td>Long Url</td>
-                        <td>Short Url</td>
-                    </tr><tr>
-                        <td>Id</td>
-                        <td>Long Url</td>
-                        <td>Short Url</td>
-                    </tr><tr>
-                        <td>Id</td>
-                        <td>Long Url</td>
-                        <td>Short Url</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    )
+    constructor() {
+        super();
+        this.state = {
+            urlList: []
+        }
+    }
+
+    async loadData() {
+        const data = await graphQLFetch(`query {getList {id long_url short_url}}`);
+        // console.log(data.data.getList);
+        this.setState({
+            urlList: data.data.getList
+        })
+    }
+
+    componentDidMount() {
+        this.loadData();
+    }
+
+    render() {
+
+        return (
+            <div>
+                <URLTable urlList={this.state.urlList}/>
+            </div>
+        )
+    }
 }

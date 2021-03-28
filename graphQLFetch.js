@@ -1,4 +1,4 @@
-export default async function graphQLFetch(query, variables) {
+export default async function graphQLFetch(query, variables = {}) {
 
     // console.log(query);
     // console.log(JSON.stringify(query));

@@ -5,6 +5,9 @@ export default class Shortener extends React.Component {
 
     constructor() {
         super();
+        this.state = {
+            shortUrl: "Short Url will appear here"
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -23,6 +26,9 @@ export default class Shortener extends React.Component {
         const data = await graphQLFetch(query, varible)
         // console.log(data);
         console.log('The shortned url is: ', data.data.short);
+        this.setState({
+            shortUrl: data.data.short
+        })
         form.reset();
     }
 
@@ -38,7 +44,7 @@ export default class Shortener extends React.Component {
                     </form>
                 </div>
                 <div className='output-container'>
-                    <code className='output'>Short url will apear here</code>
+                    <code className='output'><a>{this.state.shortUrl}</a></code>
                 </div>
             </div>
         )
