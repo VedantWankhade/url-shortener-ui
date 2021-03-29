@@ -6,7 +6,7 @@ function URLRow({url}) {
         <tr>
             <td>{url.id}</td>
             <td>{url.long_url}</td>
-            <td><a href={url.long_url}>{url.short_url}</a></td>
+            <td><a href={`http://localhost:3000/go/${url.short_url}`}>{url.short_url}</a></td>
         </tr>
     )
 }
