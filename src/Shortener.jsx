@@ -36,15 +36,15 @@ export default class Shortener extends React.Component {
         return (
             <div className='shortener-container'>
                 <div className='form-container'>
-                    <form name='url-form' onSubmit={this.handleSubmit}>
+                    <form id='url-form' name='url-form' onSubmit={this.handleSubmit}>
                         <label htmlFor="longUrlInput">
                             <input name="longUrlInput" id="longUrlInput" placeholder="Type url here" type="text" />
                         </label>
-                        <button type='submit'>Shrink</button>
+                        <button id='shrink-btn' type='submit'>Shrink</button>
                     </form>
                 </div>
                 <div className='output-container'>
-                    <code className='output'><a>{this.state.shortUrl}</a></code>
+                    <code className='output'><a href={`http://localhost:3000/go/${this.state.shortUrl}`}>{this.state.shortUrl}</a></code>
                 </div>
             </div>
         )

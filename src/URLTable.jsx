@@ -16,15 +16,17 @@ export default function URLTable({urlList}) {
     // console.log(urlList);
     const urlRows = Array.from(urlList, url => <URLRow key={url.id} url={url} />);
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Long URL</th>
-                    <th>Short URL</th>
-                </tr>
-                {urlRows}
-            </thead>
-        </table>
+        <div className='urlTableContainer'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Long URL</th>
+                        <th>Short URL</th>
+                    </tr>
+                    {urlRows}
+                </thead>
+            </table>
+        </div>
     )
 }

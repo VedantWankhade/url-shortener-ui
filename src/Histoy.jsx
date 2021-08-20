@@ -26,7 +26,7 @@ export default class History extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className='table-top-level-container'>
                 <URLTable urlList={this.state.urlList}/>
             </div>
         )
